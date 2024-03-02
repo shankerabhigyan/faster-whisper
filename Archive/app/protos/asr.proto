@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service ASR {
+  rpc StreamASR (stream ASRRequest) returns (stream ASRResponse) {}
+}
+
+message ASRRequest {
+  bytes audio_chunk = 1;
+  string hot_words = 2;
+}
+
+message ASRResponse {
+  string transcript = 1;
+}
